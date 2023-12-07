@@ -1,0 +1,30 @@
+<!--this doc formats add product page
+user will interact with this html format to input product info-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product Data</title>
+</head>
+<body>
+    <h1>Add Product Data</h1>
+    <form method="post">
+        <label for="category">Category:</label>
+        <input type="text" name="category" required>
+        <br>
+        <label for="description">Description:</label>
+        <input type="text" name="description" required>
+        <br>
+        <label for="price">Price ($):</label>
+        <input type="number" name="price" step="0.01" required>
+        <br>
+        <label for="code">Code:</label>
+        <input type="text" name="code" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

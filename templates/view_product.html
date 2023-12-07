@@ -1,0 +1,49 @@
+<!--this doc formats view product page
+user will interact with this page to see what products currently exist in db
+and will interact to delete any unwanted products from existing db-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Product Data</title>
+</head>
+<body>
+    <h1>View Product Data</h1>
+    <form method="post">
+        <label for="category">Category:</label>
+        <input type="text" name="category">
+        <br>
+        <input type="submit" value="View">
+    </form>
+    <br>
+    {% if products %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Code</th>
+                <th>Delete</th>
+            </tr>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product[0] }}</td>
+                    <td>{{ product[1] }}</td>
+                    <td>{{ product[2] }}</td>
+                    <td>{{ product[3] }}</td>
+                    <td>{{ product[4] }}</td>
+                    <td>
+                        <form method="post" action="/delete_product/{{ product[0] }}">
+                            <input type="submit" value="Delete Product">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
